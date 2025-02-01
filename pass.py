@@ -10,8 +10,8 @@ db = client["admin"]  # Database name
 new_collection = db["CampusConnect"]  # New collection name
 
 # Document to be added
-username = "22106086@srcas.ac.in"
-password = "hari2444"  # Plaintext password
+username = "admin"
+password = "admin"  # Plaintext password
 
 # Hash the password
 hashed_password = bcrypt.generate_password_hash(password).decode("utf-8")
