@@ -5,3 +5,5 @@ pymongo
 datetime
 mail
 signup
+flask_bcrypt
+spacy
