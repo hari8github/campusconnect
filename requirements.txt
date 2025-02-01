@@ -7,3 +7,6 @@ mail
 signup
 flask_bcrypt
 spacy
+flask_cors
+flask_dance
+flask_login
