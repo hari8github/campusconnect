@@ -1,0 +1,7 @@
+flask
+typing
+dotenv
+pymongo
+datetime
+mail
+signup
