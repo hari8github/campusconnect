@@ -1,0 +1,286 @@
+[
+  {
+      "students": {
+          "ST788655": {
+              "academic_details": {
+                  "enrollment": {
+                      "department": "Business"
+                  },
+                  "academic_performance": {
+                      "cgpa": 2.98
+                  },
+                  "attendance": {
+                      "percentage": 93.02
+                  },
+                  "courses": [1, 2, 3, 4, 5]
+              }
+          },
+          "ST856856": {
+              "academic_details": {
+                  "enrollment": {
+                      "department": "Computer Science"
+                  },
+                  "academic_performance": {
+                      "cgpa": 2.56
+                  },
+                  "attendance": {
+                      "percentage": 76.36
+                  },
+                  "courses": [1, 2, 3]
+              }
+          },
+          "ST652238": {
+              "academic_details": {
+                  "enrollment": {
+                      "department": "Business"
+                  },
+                  "academic_performance": {
+                      "cgpa": 2.83
+                  },
+                  "attendance": {
+                      "percentage": 73.17
+                  },
+                  "courses": [1, 2, 3, 4, 5, 6]
+              }
+          },
+          "ST453397": {
+              "academic_details": {
+                  "enrollment": {
+                      "department": "Physics"
+                  },
+                  "academic_performance": {
+                      "cgpa": 2.68
+                  },
+                  "attendance": {
+                      "percentage": 83.33
+                  },
+                  "courses": [1, 2, 3, 4, 5]
+              }
+          },
+          "ST489029": {
+              "academic_details": {
+                  "enrollment": {
+                      "department": "Engineering"
+                  },
+                  "academic_performance": {
+                      "cgpa": 3.24
+                  },
+                  "attendance": {
+                      "percentage": 90.38
+                  },
+                  "courses": [1, 2, 3]
+              }
+          },
+          "ST100492": {
+              "academic_details": {
+                  "enrollment": {
+                      "department": "Computer Science"
+                  },
+                  "academic_performance": {
+                      "cgpa": 2.97
+                  },
+                  "attendance": {
+                      "percentage": 81.58
+                  },
+                  "courses": [1, 2, 3]
+              }
+          },
+          "ST917989": {
+              "academic_details": {
+                  "enrollment": {
+                      "department": "Chemistry"
+                  },
+                  "academic_performance": {
+                      "cgpa": 2.92
+                  },
+                  "attendance": {
+                      "percentage": 90.0
+                  },
+                  "courses": [1, 2, 3, 4, 5, 6]
+              }
+          },
+          "ST591321": {
+              "academic_details": {
+                  "enrollment": {
+                      "department": "Mathematics"
+                  },
+                  "academic_performance": {
+                      "cgpa": 3.44
+                  },
+                  "attendance": {
+                      "percentage": 72.22
+                  },
+                  "courses": [1, 2, 3, 4]
+              }
+          },
+          "ST108322": {
+              "academic_details": {
+                  "enrollment": {
+                      "department": "Physics"
+                  },
+                  "academic_performance": {
+                      "cgpa": 3.22
+                  },
+                  "attendance": {
+                      "percentage": 90.0
+                  },
+                  "courses": [1, 2, 3, 4, 5, 6]
+              }
+          },
+          "ST778798": {
+              "academic_details": {
+                  "enrollment": {
+                      "department": "Chemistry"
+                  },
+                  "academic_performance": {
+                      "cgpa": 3.14
+                  },
+                  "attendance": {
+                      "percentage": 87.5
+                  },
+                  "courses": [1, 2, 3, 4, 5, 6]
+              }
+          },
+          "ST913549": {
+              "academic_details": {
+                  "enrollment": {
+                      "department": "Chemistry"
+                  },
+                  "academic_performance": {
+                      "cgpa": 2.65
+                  },
+                  "attendance": {
+                      "percentage": 97.78
+                  },
+                  "courses": [1, 2, 3, 4]
+              }
+          },
+          "ST87397": {
+              "academic_details": {
+                  "enrollment": {
+                      "department": "Business"
+                  },
+                  "academic_performance": {
+                      "cgpa": 2.97
+                  },
+                  "attendance": {
+                      "percentage": 81.03
+                  },
+                  "courses": [1, 2, 3, 4, 5]
+              }
+          },
+          "ST637419": {
+              "academic_details": {
+                  "enrollment": {
+                      "department": "Engineering"
+                  },
+                  "academic_performance": {
+                      "cgpa": 3.0
+                  },
+                  "attendance": {
+                      "percentage": 82.86
+                  },
+                  "courses": [1, 2, 3]
+              }
+          },
+          "ST191711": {
+              "academic_details": {
+                  "enrollment": {
+                      "department": "Business"
+                  },
+                  "academic_performance": {
+                      "cgpa": 2.84
+                  },
+                  "attendance": {
+                      "percentage": 73.68
+                  },
+                  "courses": [1, 2, 3]
+              }
+          },
+          "ST179049": {
+              "academic_details": {
+                  "enrollment": {
+                      "department": "Chemistry"
+                  },
+                  "academic_performance": {
+                      "cgpa": 2.64
+                  },
+                  "attendance": {
+                      "percentage": 96.55
+                  },
+                  "courses": [1, 2, 3]
+              }
+          },
+          "ST712597": {
+              "academic_details": {
+                  "enrollment": {
+                      "department": "Computer Science"
+                  },
+                  "academic_performance": {
+                      "cgpa": 2.13
+                  },
+                  "attendance": {
+                      "percentage": 68.75
+                  },
+                  "courses": [1, 2, 3]
+              }
+          },
+          "ST780620": {
+              "academic_details": {
+                  "enrollment": {
+                      "department": "Engineering"
+                  },
+                  "academic_performance": {
+                      "cgpa": 3.01
+                  },
+                  "attendance": {
+                      "percentage": 71.15
+                  },
+                  "courses": [1, 2, 3, 4, 5]
+              }
+          },
+          "ST648873": {
+              "academic_details": {
+                  "enrollment": {
+                      "department": "Business"
+                  },
+                  "academic_performance": {
+                      "cgpa": 2.79
+                  },
+                  "attendance": {
+                      "percentage": 82.22
+                  },
+                  "courses": [1, 2, 3]
+              }
+          },
+          "ST138345": {
+              "academic_details": {
+                  "enrollment": {
+                      "department": "Business"
+                  },
+                  "academic_performance": {
+                      "cgpa": 2.88
+                  },
+                  "attendance": {
+                      "percentage": 100.0
+                  },
+                  "courses": [1, 2, 3]
+              }
+          },
+          "ST154231": {
+              "academic_details": {
+                  "enrollment": {
+                      "department": "Computer Science"
+                  },
+                  "academic_performance": {
+                      "cgpa": 3.34
+                  },
+                  "attendance": {
+                      "percentage": 100.0
+                  },
+                  "courses": [1, 2, 3]
+              }
+          }
+      }
+  }
+]

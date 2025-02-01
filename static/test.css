@@ -1,0 +1,265 @@
+/* Modern Chatbot Interface Styles */
+:root {
+    --primary-color: #4f46e5;
+    --secondary-color: #3b82f6;
+    --bg-color: blue;
+    --chat-bg: #ffffff;
+    --user-message-bg: blue;
+    --bot-message-bg: #f3f4f6;
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+    --border-color: #e5e7eb;
+    --transition: all 0.3s ease;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-color);
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .chat-container {
+    background: var(--chat-bg);
+    width: 90%;
+    max-width: 1000px;
+    height: 90vh;
+    border-radius: 1rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  /* Chat Header */
+  .chat-header {
+    padding: 1.5rem;
+    background: white;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .chat-header h2 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 1.25rem;
+  }
+  
+  #logout-btn {
+    padding: 0.5rem 1rem;
+    background: #007bff; /* Set background color to blue */
+    border: 1px solid #007bff; /* Match border color with background */
+    border-radius: 0.5rem;
+    color: white; /* Change text color to white for better contrast */
+    cursor: pointer;
+    transition: background 0.3s ease; /* Smooth transition for background color */
+}
+
+#logout-btn:hover {
+    background: #0056b3; /* Darker blue on hover */
+    border-color: #0056b3; /* Match border color on hover */
+}
+  
+  /* Student ID Input */
+  #student-id-input {
+    width: calc(100% - 3rem);
+    margin: 1rem 1.5rem;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: var(--transition);
+  }
+  
+  #student-id-input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+  }
+  
+  /* Chat Messages Area */
+  .chat-messages {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .message {
+    max-width: 80%;
+    padding: 1rem;
+    border-radius: 1rem;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .user-message {
+    background: blue;
+    color: black;
+    align-self: flex-end;
+    border-bottom-right-radius: 0.25rem;
+  }
+  
+  .bot-message {
+    background: var(--bot-message-bg);
+    color: var(--text-primary);
+    align-self: flex-start;
+    border-bottom-left-radius: 0.25rem;
+  }
+  
+  /* Chat Input Area */
+  .chat-input-container {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    background: #f9f9f9; /* Optional: Add a background color for better visibility */
+}
+
+#message-input {
+    flex: 1; /* Allow the input to take up available space */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 5px; /* Add some space between the input and button */
+    font-size: 16px; /* Increase font size for better readability */
+}
+
+#send-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px; /* Adjust padding for a larger button */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px; /* Increase font size for better readability */
+}
+
+#send-btn:hover {
+    background: #0056b3;
+}
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Loading Indicator */
+  .typing-indicator {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: var(--bot-message-bg);
+    border-radius: 1rem;
+    align-self: flex-start;
+    margin-bottom: 1rem;
+  }
+  
+  .typing-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--text-secondary);
+    border-radius: 50%;
+    animation: typingAnimation 1.4s infinite ease-in-out;
+  }
+  
+  .typing-dot:nth-child(1) { animation-delay: 0s; }
+  .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+  
+  @keyframes typingAnimation {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-6px); }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .chat-container {
+      width: 100%;
+      height: 100vh;
+      border-radius: 0;
+    }
+    
+    .message {
+      max-width: 90%;
+    }
+    
+    .chat-input {
+      padding: 1rem;
+    }
+  }
+  .suggestion-buttons {
+    padding: 1.5rem;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.suggestion-btn {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.suggestion-btn:hover {
+    background-color: #e0e0e0;
+}
+/* Styles for the new button */
+#compare-students-btn {
+  @apply bg-green-500 text-white font-bold py-2 px-4 rounded-lg transition duration-300;
+}
+
+#compare-students-btn:hover {
+  @apply bg-green-600;
+}
+
+/* Styles for the modal window */
+#compare-students-modal {
+  @apply fixed inset-0 flex items-center justify-center bg-black bg-opacity-50;
+}
+
+/* Styles for the comparison table */
+#comparison-table {
+  @apply mt-6 w-full border-collapse;
+}
+
+#comparison-table th, #comparison-table td {
+  @apply border border-gray-300 p-2 text-left;
+}
+#common-details-modal {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+#common-details-table {
+  display: block;
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 70vh;
+}
+
+#common-details-table thead {
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+
+#common-details-table tbody {
+  display: block;
+  overflow-y: auto;
+  max-height: 60vh;
+}

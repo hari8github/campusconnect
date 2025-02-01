@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Academic Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='test.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-blue-200 min-h-screen flex items-center justify-center p-8">
+    <div class="chat-container w-full h-full bg-white shadow-2xl rounded-xl overflow-hidden flex flex-col">
+        <div class="chat-header bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 flex justify-between items-center">
+            <h2 class="text-3xl font-bold">Student Academic Chatbot</h2>
+            <div class="flex gap-2">
+                <button id="compare-students-btn" class="bg-blue-200 hover:bg-green-600 text-black font-bold py-2 px-6 rounded-lg transition duration-300">
+                    Compare Students
+                </button>
+                <button id="logout-btn" onclick="location.href='/logout'" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+                    <svg class="w-4 h-4 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                    </svg>
+                    Logout
+                </button>
+            </div>
+        </div>
+        
+        <div class="student-selection p-4 border-b">
+            <select 
+                id="student-selector" 
+                class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white cursor-pointer hover:border-blue-500 transition-colors duration-200"
+            >
+                <option value="" disabled selected>Select a Student</option>
+                <option value="ST788655">Liam Miller - ST788655</option>
+                <option value="ST856856">Olivia Davis - ST856856</option>
+                <option value="ST652238">Noah Johnson - ST652238</option>
+                <option value="ST453397">Emma Brown - ST453397</option>
+                <option value="ST489029">William Garcia - ST489029</option>
+                <option value="ST100492">Ava Martinez - ST100492</option>
+                <option value="ST917989">Sophia Anderson - ST917989</option>
+                <option value="ST591321">James Taylor - ST591321</option>
+                <option value="ST108322">Isabella Moore - ST108322</option>
+                <option value="ST778798">Benjamin Wilson - ST778798</option>
+                <option value="ST913549">Charlotte Lee - ST913549</option>
+                <option value="ST87397">Lucas Walker - ST87397</option>
+                <option value="ST637419">Mia Hall - ST637419</option>
+                <option value="ST191711">Alexander Young - ST191711</option>
+                <option value="ST179049">Ella Allen - ST179049</option>
+                <option value="ST712597">Daniel King - ST712597</option>
+                <option value="ST780620">Amelia Wright - ST780620</option>
+                <option value="ST648873">Logan Scott - ST648873</option>
+                <option value="ST138345">Grace Adams - ST138345</option>
+                <option value="ST154231">Lucas Nelson - ST154231</option>
+                
+            </select>
+        </div>
+        
+        <div class="suggestion-buttons p-4 border-b">
+            <div class="button-group flex gap-2">
+                <button class="suggestion-btn bg-orange-500 hover:bg-orange-600 text-blue font-bold py-1 px-2 rounded-lg text-xs transition duration-300" data-query="courses">Courses</button>
+                <button class="suggestion-btn bg-orange-500 hover:bg-orange-600 text-blue font-bold py-1 px-2 rounded-lg text-xs transition duration-300" data-query="attendance">Attendance</button>
+                <button class="suggestion-btn bg-orange-500 hover:bg-orange-600 text-blue font-bold py-1 px-2 rounded-lg text-xs transition duration-300" data-query="credits">Credits</button>
+                <button class="suggestion-btn bg-orange-500 hover:bg-orange-600 text-blue font-bold py-1 px-2 rounded-lg text-xs transition duration-300" data-query="enrollment">Enrollment</button>
+                <button class="suggestion-btn bg-orange-500 hover:bg-orange-600 text-blue font-bold py-1 px-2 rounded-lg text-xs transition duration-300" data-query="schedule">Schedules</button>
+                <button class="suggestion-btn bg-orange-500 hover:bg-orange-600 text-blue font-bold py-1 px-2 rounded-lg text-xs transition duration-300" data-query="academic_status">Academic Status</button>
+                <button id="common-details-btn" class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-1 px-2 rounded-lg text-xs transition duration-300">Common Details</button>
+            </div>
+        </div>
+        
+        <div id="chat-messages" class="chat-messages p-4 flex-1 overflow-y-auto bg-gray-50">
+            <div class="message bot-message initial-message bg-white p-3 rounded-lg shadow-sm">
+                Welcome! Please select a student from the dropdown menu above to view their academic information.
+            </div>
+        </div>
+
+        <div id="compare-students-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+            <div class="bg-white rounded-lg shadow-lg w-full max-w-lg p-6">
+                <h2 class="text-xl font-bold mb-4">Compare Students</h2>
+                <form id="compare-students-form">
+                    <div class="mb-4">
+                        <label for="student1" class="block text-sm font-medium text-gray-700 mb-1">Student 1:</label>
+                        <select id="student1" name="student1" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <!-- Populate with student IDs -->
+                            <option value="ST788655">Liam Miller - ST788655</option>
+                            <option value="ST856856">Olivia Davis - ST856856</option>
+                            <option value="ST652238">Noah Johnson - ST652238</option>
+                            <option value="ST453397">Emma Brown - ST453397</option>
+                            <option value="ST489029">William Garcia - ST489029</option>
+                            <option value="ST100492">Ava Martinez - ST100492</option>
+                            <option value="ST917989">Sophia Anderson - ST917989</option>
+                            <option value="ST591321">James Taylor - ST591321</option>
+                            <option value="ST108322">Isabella Moore - ST108322</option>
+                            <option value="ST778798">Benjamin Wilson - ST778798</option>
+                            <option value="ST913549">Charlotte Lee - ST913549</option>
+                            <option value="ST87397">Lucas Walker - ST87397</option>
+                            <option value="ST637419">Mia Hall - ST637419</option>
+                            <option value="ST191711">Alexander Young - ST191711</option>
+                            <option value="ST179049">Ella Allen - ST179049</option>
+                            <option value="ST712597">Daniel King - ST712597</option>
+                            <option value="ST780620">Amelia Wright - ST780620</option>
+                            <option value="ST648873">Logan Scott - ST648873</option>
+                            <option value="ST138345">Grace Adams - ST138345</option>
+                            <option value="ST154231">Lucas Nelson - ST154231</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="student2" class="block text-sm font-medium text-gray-700 mb-1">Student 2:</label>
+                        <select id="student2" name="student2" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <!-- Populate with student IDs -->
+                            <option value="ST788655">Liam Miller - ST788655</option>
+                            <option value="ST856856">Olivia Davis - ST856856</option>
+                            <option value="ST652238">Noah Johnson - ST652238</option>
+                            <option value="ST453397">Emma Brown - ST453397</option>
+                            <option value="ST489029">William Garcia - ST489029</option>
+                            <option value="ST100492">Ava Martinez - ST100492</option>
+                            <option value="ST917989">Sophia Anderson - ST917989</option>
+                            <option value="ST591321">James Taylor - ST591321</option>
+                            <option value="ST108322">Isabella Moore - ST108322</option>
+                            <option value="ST778798">Benjamin Wilson - ST778798</option>
+                            <option value="ST913549">Charlotte Lee - ST913549</option>
+                            <option value="ST87397">Lucas Walker - ST87397</option>
+                            <option value="ST637419">Mia Hall - ST637419</option>
+                            <option value="ST191711">Alexander Young - ST191711</option>
+                            <option value="ST179049">Ella Allen - ST179049</option>
+                            <option value="ST712597">Daniel King - ST712597</option>
+                            <option value="ST780620">Amelia Wright - ST780620</option>
+                            <option value="ST648873">Logan Scott - ST648873</option>
+                            <option value="ST138345">Grace Adams - ST138345</option>
+                            <option value="ST154231">Lucas Nelson - ST154231</option>
+                        </select>
+                    </div>
+                    <div class="flex gap-2">
+                        <button id="compare-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">Compare</button>
+                        <button id="cancel-btn" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">Cancel</button>
+                    </div>
+                </form>
+                <!-- Comparison table -->
+                <div id="comparison-table" class="hidden mt-6">
+                    <table class="w-full border-collapse border border-gray-300">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="border border-gray-300 p-2 text-left">Student</th>
+                                <th class="border border-gray-300 p-2 text-left">GPA</th>
+                                <th class="border border-gray-300 p-2 text-left">Credits</th>
+                                <th class="border border-gray-300 p-2 text-left">Attendance</th>
+                            </tr>
+                        </thead>
+                        <tbody id="comparison-data" class="bg-white">
+                            <!-- Populate with comparison data -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-input-container p-4 bg-blue-200">
+            <div class="flex gap-2 w-full">
+                <input 
+                    type="text" 
+                    id="message-input" 
+                    placeholder="Ask a question about the student's academic information"
+                    class="w-full p-2 border border-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                >
+                <button id="send-btn" class="bg-blue-500 hover:bg-blue-600 text-blue font-bold py-2 px-4 rounded-lg transition duration-300">
+                    Send
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add this right before the closing body tag -->
+<div id="common-details-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-lg shadow-lg w-full max-w-4xl p-6">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold">Common Details</h2>
+            <div class="flex gap-2">
+                <select id="sort-criteria" class="border border-gray-300 rounded-lg p-2">
+                    <option value="cgpa">Sort by CGPA</option>
+                    <option value="attendance">Sort by Attendance</option>
+                    <option value="credits_completed">Sort by Credits</option>
+                </select>
+                <button id="sort-order-btn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg">
+                    ↑ Ascending
+                </button>
+                <button id="close-common-details" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg">
+                    Close
+                </button>
+            </div>
+        </div>
+        <div class="overflow-x-auto">
+            <table id="common-details-table" class="w-full border-collapse border border-gray-300">
+                <tbody id="common-details-data">
+                    <!-- Data will be populated dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+     
+    <script src="{{ url_for('static', filename='test.js') }}"></script>
+</body>
+</html>
